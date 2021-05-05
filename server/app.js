@@ -3,6 +3,12 @@ const { graphqlHTTP } = require('express-graphql');
 const  schema = require('./schema/schema');
 const app = express();
 const mongoose = require('mongoose');
+//It is used to access the data from the client side
+const cors = require('cors');
+
+
+//allow corss-origin requests
+app.use(cors());
 
 mongoose.connect('mongodb+srv://Avinash:mnnoNlY5vBpNq3eJ@react-blog.ddbru.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 { useNewUrlParser: true, useUnifiedTopology: true });

@@ -3,10 +3,21 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 //Import the queries
 import { getBooksQuery } from '../queries/queries';
-//It is same as we make query in graphical we use in browser
 
+
+//components
+import BookDetails from './BookDetails';
 
 class BookList extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            //It will keep track of book id which is selected
+            selected: null
+        }
+    }
+
     displayBooks(){
         var data = this.props.data;
         if(data.loading){
@@ -15,7 +26,7 @@ class BookList extends Component {
         else{
            return  data.books.map(book => {
                 return(
-                    <li key={book.id}>{book.name}</li>
+                    <li key={book.id} onClick={(e)=>{this.setState({selected: book.id})}}>{book.name}</li>
                 )
             });
         }
@@ -27,6 +38,8 @@ class BookList extends Component {
                 <ul id="book-list">
                     {this.displayBooks()}
                 </ul>
+                {/* We pass the props for selected Id to show the details of book */}
+                <BookDetails bookId={this.state.selected}/>
             </div>
         );
     }

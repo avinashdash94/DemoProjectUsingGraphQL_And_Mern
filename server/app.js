@@ -10,7 +10,7 @@ const cors = require('cors');
 //allow corss-origin requests
 app.use(cors());
 
-mongoose.connect('mongodb+srv://Avinash:mnnoNlY5vBpNq3eJ@react-blog.ddbru.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Avinash:UseYourPassword@react-blog.ddbru.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 { useNewUrlParser: true, useUnifiedTopology: true });
 
 
